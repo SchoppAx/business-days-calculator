@@ -11,13 +11,13 @@ Business Days Calculator
 * If you're using Composer to manage dependencies, you can use
 
 ```sh
-composer require SchoppAx/business-days-calculator
+composer require schoppax/business-days-calculator
 ```
 
 or add to your composer.json file:
 
     "require": {
-        "SchoppAx/business-days-calculator": "1.*",
+        "schoppax/business-days-calculator": "1.*",
     }
 
 # Example
