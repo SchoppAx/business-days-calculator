@@ -50,10 +50,8 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
         $this->_sut->setFreeDays($freeDays);
         $this->_sut->setHolidays($holidays);
         $this->_sut->setFreeWeekDays($nonBusinessDays);
-        $this->_sut->setStartDate($startDate);
-        $this->_sut->addBusinessDays($howManyDays);
 
-        $response = $this->_sut->getDate();
+        $response = $this->_sut->addBusinessDays($startDate, $howManyDays);
 
         $this->assertEquals($response, $expected, $message);
     }
@@ -63,6 +61,8 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
      */
     public function testTooManyBusinessDaysException()
     {
+        $date = new \DateTime('2000-01-01');
+        
         $nonBusinessDays = [
             Calculator::MONDAY,
             Calculator::TUESDAY,
@@ -74,17 +74,14 @@ class CalculatorTest extends \PHPUnit_Framework_TestCase
         ];
 
         $this->_sut->setFreeWeekDays($nonBusinessDays);
-        $this->_sut->addBusinessDays(1);
-        $this->_sut->getDate();
+        $this->_sut->addBusinessDays($date, 1);
     }
 
     public function testThatPassedParameterIsNotChangedByReferenceInSut()
     {
         $date = new \DateTime('2000-01-01');
 
-        $this->_sut->setStartDate($date);
-        $this->_sut->addBusinessDays(1);
-        $responseDate = $this->_sut->getDate();
+        $responseDate = $this->_sut->addBusinessDays($date, 1);
 
         $this->assertNotEquals($date, $responseDate);
     }
