@@ -1,15 +1,20 @@
 {
-    "name": "andrejsstepanovs/business-days-calculator",
+    "name": "SchoppAx/business-days-calculator",
     "type": "library",
     "description": "Business day calculation",
     "keywords": ["business", "days"],
     "license": "MIT",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "authors": [
         {
             "name": "Andrejs Stepanovs",
             "email": "andrejsstepanovs@gmail.com",
             "homepage": "https://github.com/andrejsstepanovs/business-days-calculator"
+        },
+        {
+            "name": "Axel Schoppe",
+            "email": "develop4all@gmail.com",
+            "homepage": "https://github.com/SchoppAx/business-days-calculator"
         }
     ],
     "require": {
