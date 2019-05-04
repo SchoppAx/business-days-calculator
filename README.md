@@ -11,13 +11,13 @@ Business Days Calculator
 * If you're using Composer to manage dependencies, you can use
 
 ```sh
-composer require andrejsstepanovs/business-days-calculator
+composer require SchoppAx/business-days-calculator
 ```
 
 or add to your composer.json file:
 
     "require": {
-        "andrejsstepanovs/business-days-calculator": "1.*",
+        "SchoppAx/business-days-calculator": "1.*",
     }
 
 # Example
@@ -40,13 +40,15 @@ $freeWeekDays = [
 ];
 
 $calculator = new Calculator();
-$calculator->setStartDate(new \DateTime('2000-12-27'));
 $calculator->setFreeWeekDays($freeWeekDays); // repeat every week
 $calculator->setHolidays($holidays);         // repeat every year
 $calculator->setFreeDays($freeDays);         // don't repeat
 
-$calculator->addBusinessDays(3);             // add X working days
-
-$result = $calculator->getDate();            // \DateTime
+$result = $calculator->addBusinessDays(new \DateTime('2000-12-27', 3);    // add X working days
 echo $result->format('Y-m-d');               // 2001-01-03
+
+$result = $calculator->addBusinessDays(new \DateTime('2000-01-03', -3);   // substract X working days
+echo $result->format('Y-m-d');               // 2001-12-27
+
+
 ```
